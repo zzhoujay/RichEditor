@@ -3,6 +3,9 @@ package com.zzhoujay.richeditor;
 import android.graphics.Color;
 import android.support.annotation.IntDef;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * Created by zhou on 2016/11/9.
  */
@@ -10,7 +13,8 @@ import android.support.annotation.IntDef;
 public class EditStatus {
 
     @IntDef({Head.unspecified, Head.h1, Head.h2, Head.h3, Head.h4, Head.h5, Head.h6})
-    @interface Head {
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface Head {
         int unspecified = 0;
         int h1 = 1;
         int h2 = 2;
@@ -21,7 +25,8 @@ public class EditStatus {
     }
 
     @IntDef({List.unspecified, List.unordered, List.order})
-    @interface List {
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface List {
         int unspecified = 0;
         int unordered = 1;
         int order = 2;

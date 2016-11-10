@@ -1,4 +1,4 @@
-package com.zzhoujay.richeditor;
+package com.zzhoujay.richeditordemo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

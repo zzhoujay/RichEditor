@@ -1,4 +1,4 @@
-package com.zzhoujay.richeditor;
+package com.zzhoujay.richeditordemo;
 
 import org.junit.Test;
 
