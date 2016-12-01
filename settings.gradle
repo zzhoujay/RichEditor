@@ -1,1 +1,1 @@
-include ':app', ':richeditor'
+include ':app', ':richeditor', ':richeditorfunctionbar'

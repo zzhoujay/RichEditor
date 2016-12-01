@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/RichEditor.iml" filepath="$PROJECT_DIR$/RichEditor.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/richeditor/richeditor.iml" filepath="$PROJECT_DIR$/richeditor/richeditor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/richeditorfunctionbar/richeditorfunctionbar.iml" filepath="$PROJECT_DIR$/richeditorfunctionbar/richeditorfunctionbar.iml" />
     </modules>
   </component>
 </project>

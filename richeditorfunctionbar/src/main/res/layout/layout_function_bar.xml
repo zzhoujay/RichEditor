@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dp">
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@drawable/bg_normal_shape" />
+
+    <com.zzhoujay.richeditorfunctionbar.StateListImageButton
+        android:id="@+id/btn_bold"
+        style="@style/StateListImageButton"
+        app:srcCompat="@drawable/ic_editor_bold" />
+
+    <com.zzhoujay.richeditorfunctionbar.StateListImageButton
+        android:id="@+id/btn_italic"
+        style="@style/StateListImageButton"
+        app:srcCompat="@drawable/ic_editor_italic" />
+
+    <com.zzhoujay.richeditorfunctionbar.StateListImageButton
+        android:id="@+id/btn_code"
+        style="@style/StateListImageButton"
+        app:srcCompat="@drawable/ic_editor_code" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/btn_color"
+        style="@style/StyleImageButton"
+        app:srcCompat="@drawable/ic_editor_textcolor" />
+
+    <com.zzhoujay.richeditorfunctionbar.StateListImageButton
+        android:id="@+id/btn_underline"
+        style="@style/StateListImageButton"
+        app:srcCompat="@drawable/ic_editor_underline" />
+
+    <com.zzhoujay.richeditorfunctionbar.StateListImageButton
+        android:id="@+id/btn_delete"
+        style="@style/StateListImageButton"
+        app:srcCompat="@drawable/ic_editor_strikethrough" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/btn_link"
+        style="@style/StyleImageButton"
+        app:srcCompat="@drawable/ic_link" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/btn_image"
+        style="@style/StyleImageButton"
+        app:srcCompat="@drawable/ic_image" />
+
+    <com.zzhoujay.richeditorfunctionbar.StateListImageButton
+        android:id="@+id/btn_quote"
+        style="@style/StateListImageButton"
+        app:srcCompat="@drawable/ic_editor_quote" />
+
+
+</LinearLayout>

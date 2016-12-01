@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="StateListImageButton">
+        <item name="android:layout_width">@dimen/size_image_button</item>
+        <item name="android:layout_height">@dimen/size_image_button</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:scaleType">center</item>
+    </style>
+
+    <style name="StyleImageButton" parent="StateListImageButton">
+        <item name="android:background">@drawable/bg_image_button</item>
+    </style>
+
+</resources>

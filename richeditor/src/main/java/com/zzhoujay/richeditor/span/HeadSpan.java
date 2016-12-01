@@ -1,63 +1,79 @@
 package com.zzhoujay.richeditor.span;
 
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Parcel;
-import android.support.annotation.ColorInt;
-import android.text.ParcelableSpan;
+import android.support.annotation.IntDef;
 import android.text.TextPaint;
-import android.text.style.MetricAffectingSpan;
+import android.text.style.AbsoluteSizeSpan;
+
+import com.zzhoujay.richeditor.StyleType;
 
 /**
- * Created by zhou on 2016/11/10.
+ * Created by zhou on 2016/11/26.
  */
 
-public class HeadSpan extends MetricAffectingSpan implements ParcelableSpan {
+public class HeadSpan extends AbsoluteSizeSpan implements Styleable {
 
-    private final float size;
-    private final int style;
-    @ColorInt
-    private final int color;
+    private static final int COLOR = Color.parseColor("#333333");
 
-    public HeadSpan(float size, int style,@ColorInt int color) {
-        this.size = size;
-        this.style = style;
-        this.color=color;
+
+    @IntDef({HeadSize.H1, HeadSize.H2, HeadSize.H3})
+    public @interface HeadSize {
+        int H1 = 1;
+        int H2 = 2;
+        int H3 = 3;
     }
 
-    public HeadSpan(Parcel parcel) {
-        this(parcel.readFloat(), parcel.readInt(),parcel.readInt());
+    private static final int H1 = 32;
+    private static final int H2 = 28;
+    private static final int H3 = 24;
+
+    private static int getHeadSize(@HeadSize int index) {
+        return index == HeadSize.H1 ? H1 : index == HeadSize.H2 ? H2 : H3;
+    }
+
+    @HeadSize
+    private final int headSize;
+
+    public HeadSpan(@HeadSize int size) {
+        super(getHeadSize(size), true);
+        this.headSize = size;
+    }
+
+    private HeadSpan(Parcel src) {
+        super(src);
+        int size = getSize();
+        if (size >= H1) {
+            headSize = HeadSize.H1;
+        } else if (size >= H2) {
+            headSize = HeadSize.H2;
+        } else {
+            headSize = HeadSize.H3;
+        }
     }
 
     @Override
-    public int getSpanTypeId() {
-        return 0;
+    public void updateDrawState(TextPaint ds) {
+        super.updateDrawState(ds);
+        applyStyle(ds);
+        ds.setColor(COLOR);
     }
 
     @Override
-    public int describeContents() {
-        return 0;
+    public void updateMeasureState(TextPaint ds) {
+        super.updateMeasureState(ds);
+        applyStyle(ds);
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeFloat(size);
-        dest.writeInt(style);
-        dest.writeInt(color);
+    @HeadSize
+    public int getHeadSize() {
+        return headSize;
     }
 
-    @Override
-    public void updateMeasureState(TextPaint p) {
-        apply(p,style);
-        p.setTextSize(p.getTextSize() * size);
-    }
-
-    @Override
-    public void updateDrawState(TextPaint tp) {
-        updateMeasureState(tp);
-        tp.setColor(color);
-    }
-    private static void apply(Paint paint, int style) {
+    private static void applyStyle(Paint paint) {
+        int style = Typeface.BOLD;
         int oldStyle;
 
         Typeface old = paint.getTypeface();
@@ -88,4 +104,22 @@ public class HeadSpan extends MetricAffectingSpan implements ParcelableSpan {
 
         paint.setTypeface(tf);
     }
+
+    public static final Creator<HeadSpan> CREATOR = new Creator<HeadSpan>() {
+        @Override
+        public HeadSpan createFromParcel(Parcel source) {
+            return new HeadSpan(source);
+        }
+
+        @Override
+        public HeadSpan[] newArray(int size) {
+            return new HeadSpan[size];
+        }
+    };
+
+    @Override
+    public int getStyleType() {
+        return StyleType.HEAD;
+    }
+
 }

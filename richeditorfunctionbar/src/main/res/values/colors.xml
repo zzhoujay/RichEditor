@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bg_select">#d6d7d7</color>
+    <color name="bg_normal">#eeeeee</color>
+    
+    <color name="bg_highlight">#adb8ff</color>
+
+</resources>
